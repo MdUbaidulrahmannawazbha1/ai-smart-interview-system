@@ -15,8 +15,12 @@ def transcribe_audio(
     """
     Transcribe audio file to text.
     
-    Note: This is a placeholder implementation. In production, this would integrate
-    with services like Google Speech-to-Text, AWS Transcribe, or Whisper API.
+    **IMPORTANT**: This is a placeholder implementation that returns mock data.
+    Before using in production, integrate with a real speech-to-text service such as:
+    - Google Cloud Speech-to-Text API
+    - AWS Amazon Transcribe
+    - OpenAI Whisper API
+    - Azure Speech Service
     
     Args:
         audio_file_path: Path to the audio file
@@ -29,7 +33,7 @@ def transcribe_audio(
         Exception: If transcription fails
     """
     try:
-        # Placeholder implementation
+        # Placeholder implementation - REPLACE WITH ACTUAL SERVICE
         # In production, integrate with actual speech-to-text service
         return {
             "text": "This is a placeholder transcription. Integrate with a real speech-to-text service.",

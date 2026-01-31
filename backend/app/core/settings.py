@@ -5,7 +5,7 @@ Application settings module for AI-Powered Smart Interview System.
 Defines configuration settings and environment variables.
 """
 
-from typing import Optional
+from typing import Optional, List
 import os
 
 
@@ -23,7 +23,9 @@ class Settings:
     DEBUG: bool = os.getenv("DEBUG", "False").lower() == "true"
     
     # CORS Configuration
-    CORS_ORIGINS: list = ["*"]
+    # SECURITY WARNING: In production, replace '*' with specific allowed origins
+    # Example: ["https://yourdomain.com", "https://app.yourdomain.com"]
+    CORS_ORIGINS: List[str] = os.getenv("CORS_ORIGINS", "*").split(",") if os.getenv("CORS_ORIGINS") else ["*"]
     
     # Model Configuration
     TFIDF_MAX_FEATURES: int = 1000
