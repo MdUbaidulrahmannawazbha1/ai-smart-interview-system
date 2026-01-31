@@ -1,0 +1,7 @@
+fastapi
+pydantic
+numpy
+scikit-learn
+textblob
+python-multipart
+uvicorn
