@@ -1,10 +1,16 @@
 """
 ML Model loader
 """
-from transformers import pipeline, AutoTokenizer, AutoModelForSequenceClassification
 from app.core.logger import logger
 from app.core.config import settings
 from typing import Optional
+
+try:
+    from transformers import pipeline, AutoTokenizer, AutoModelForSequenceClassification
+    TRANSFORMERS_AVAILABLE = True
+except ImportError:
+    TRANSFORMERS_AVAILABLE = False
+    logger.warning("transformers library not available. Sentiment analysis will use fallback.")
 
 
 class ModelLoader:
@@ -25,8 +31,12 @@ class ModelLoader:
         Load sentiment analysis model
         
         Returns:
-            Sentiment analysis pipeline
+            Sentiment analysis pipeline or None
         """
+        if not TRANSFORMERS_AVAILABLE:
+            logger.warning("Transformers not available, sentiment analysis will use fallback")
+            return None
+            
         if self._sentiment_pipeline is None:
             try:
                 logger.info(f"Loading sentiment model: {settings.MODEL_NAME}")
@@ -46,8 +56,12 @@ class ModelLoader:
         Load tokenizer
         
         Returns:
-            Tokenizer instance
+            Tokenizer instance or None
         """
+        if not TRANSFORMERS_AVAILABLE:
+            logger.warning("Transformers not available")
+            return None
+            
         if self._tokenizer is None:
             try:
                 logger.info(f"Loading tokenizer: {settings.MODEL_NAME}")

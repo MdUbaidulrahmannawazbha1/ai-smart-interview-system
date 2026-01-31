@@ -31,6 +31,15 @@ class SentimentAnalyzer:
         try:
             pipeline = self._get_pipeline()
             
+            # If pipeline is not available, return neutral sentiment
+            if pipeline is None:
+                logger.debug("Sentiment pipeline not available, returning neutral")
+                return {
+                    "label": "NEUTRAL",
+                    "confidence": 0.5,
+                    "sentiment_score": 0.5
+                }
+            
             # Truncate text if too long (model max length is usually 512 tokens)
             max_length = 500
             if len(text) > max_length:
