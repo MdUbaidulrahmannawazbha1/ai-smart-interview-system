@@ -1,0 +1,23 @@
+"""Constants package for AI-Powered Smart Interview System."""
+
+from app.constants.messages import (
+    SUCCESS_MESSAGES,
+    ERROR_MESSAGES,
+    FEEDBACK_TEMPLATES,
+    PERFORMANCE_THRESHOLDS,
+    QUESTION_PROMPTS,
+    VALIDATION_MESSAGES,
+    SYSTEM_MESSAGES,
+    RECOMMENDATIONS,
+)
+
+__all__ = [
+    "SUCCESS_MESSAGES",
+    "ERROR_MESSAGES",
+    "FEEDBACK_TEMPLATES",
+    "PERFORMANCE_THRESHOLDS",
+    "QUESTION_PROMPTS",
+    "VALIDATION_MESSAGES",
+    "SYSTEM_MESSAGES",
+    "RECOMMENDATIONS",
+]

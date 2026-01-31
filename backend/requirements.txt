@@ -5,3 +5,5 @@ scikit-learn
 textblob
 python-multipart
 uvicorn
+pytest
+httpx
